@@ -1,29 +1,39 @@
 # Python 3.13 Environment Requirements for PNN Analysis Project
+# Environment: env_cp313_pnnAnalysis
 # Install with: pip install -r requirements.txt
+# Based on tested working environment from requirements_2.txt
 
-# Core scientific computing
-pandas>=2.0.0
-numpy>=1.24.0
-scipy>=1.10.0
+# Core scientific computing packages
+pandas==2.3.2
+numpy==2.3.3
+scipy==1.16.2
 
-# Data visualization
-matplotlib>=3.7.0
-seaborn>=0.12.0
+# Data visualization packages
+matplotlib==3.10.6
+seaborn==0.13.2
 
 # Machine learning and statistics
-scikit-learn>=1.3.0
+scikit-learn==1.7.2
 
 # XML processing for SVG manipulation
-lxml>=4.9.0
+lxml==6.0.1
+
+# Standard library modules (included with Python 3.13)
+# argparse, os, sys, csv, collections, typing, xml.etree.ElementTree, re, shutil
 
 # Optional: Jupyter notebook support
-jupyter>=1.0.0
-notebook>=6.5.0
+jupyter==1.1.1
+notebook==7.4.5
 
 # Optional: Enhanced plotting
-plotly>=5.0.0
+plotly==6.3.0
 
 # Development and testing (optional)
-pytest>=7.0.0
-black>=23.0.0
-flake8>=6.0.0
+pytest==8.4.2
+black==25.1.0
+flake8==7.3.0
+
+# Additional dependencies for full functionality
+joblib==1.5.2
+pillow==11.3.0
+packaging==25.0

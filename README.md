@@ -1,5 +1,9 @@
 # Spinal Cord PNN Data Analysis and Visualization Project
 
+## Acknowledgments
+
+Special thanks to **Leonardo Lupori** for his invaluable assistance. Without his support, this documentation would not have been possible.
+
 ## Project Overview
 
 This project analyzes the distribution characteristics of PNN (Perineuronal Nets) in the spinal cord, including density, energy, intensity, and diffuse fluorescence metrics, and generates corresponding heatmaps, bar plots, correlation analyses, and SVG regional coloring maps.
@@ -91,13 +95,14 @@ This project analyzes the distribution characteristics of PNN (Perineuronal Nets
 
 ### Step 1: Environment Setup
 ```bash
-# Create Python 3.13 environment
-conda create -n pnn_analysis python=3.13
-conda activate pnn_analysis
+# Run environment setup script
+python /data/SegPNN_CR/_ymz/20250917_Figure02_dataAnalysis/setup_environment.py
 
-# Install dependencies
-pip install pandas numpy matplotlib seaborn scipy scikit-learn xml
+# Verify environment configuration
+python /data/SegPNN_CR/_ymz/20250917_Figure02_dataAnalysis/test_environment.py
 ```
+
+**Note**: All required dependencies are defined in `requirements.txt` and will be automatically installed by the setup script.
 
 ### Step 2: Data Preprocessing
 ```bash
@@ -134,51 +139,40 @@ python figure_02_3renderSVG.py
 
 ### Python 3.13 Environment Setup
 
-#### 1. Create Virtual Environment
+#### 1. Automated Environment Setup
 ```bash
-# Using conda
-conda create -n pnn_analysis python=3.13
-conda activate pnn_analysis
-
-# Or using venv
-python3.13 -m venv pnn_analysis_env
-source pnn_analysis_env/bin/activate  # Linux/Mac
-# pnn_analysis_env\Scripts\activate    # Windows
+# Run environment setup script (recommended)
+python /data/SegPNN_CR/_ymz/20250917_Figure02_dataAnalysis/setup_environment.py
 ```
 
-#### 2. Install Dependencies
+#### 2. Manual Environment Setup (Optional)
 ```bash
-# Basic scientific computing packages
-pip install pandas>=2.0.0
-pip install numpy>=1.24.0
-pip install scipy>=1.10.0
+# Create environment with name: env_cp313_pnnAnalysis
+conda create -n env_cp313_pnnAnalysis python=3.13
+conda activate env_cp313_pnnAnalysis
 
-# Visualization packages
-pip install matplotlib>=3.7.0
-pip install seaborn>=0.12.0
-
-# Machine learning packages
-pip install scikit-learn>=1.3.0
-
-# XML processing
-pip install lxml>=4.9.0
-
-# Optional: Jupyter support
-pip install jupyter notebook
+# Install exact version dependencies
+pip install -r /data/SegPNN_CR/_ymz/20250917_Figure02_dataAnalysis/requirements.txt
 ```
 
-#### 3. Verify Installation
-```python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-import scipy.stats
-from sklearn.linear_model import HuberRegressor
-import xml.etree.ElementTree as ET
+**Note**: Using exact version numbers (==) ensures environment consistency and reproducibility.
 
-print("All dependencies installed successfully!")
+#### 3. Verify Environment Configuration
+```bash
+# Run environment verification script
+python /data/SegPNN_CR/_ymz/20250917_Figure02_dataAnalysis/test_environment.py
 ```
+
+**Note**: All dependencies are defined in `requirements.txt` with exact version numbers (==) to ensure environment consistency and reproducibility. The setup script will automatically handle the installation process.
+
+### Core Dependency Versions
+- **pandas**: 2.3.2
+- **numpy**: 2.3.3
+- **scipy**: 1.16.2
+- **matplotlib**: 3.10.6
+- **seaborn**: 0.13.2
+- **scikit-learn**: 1.7.2
+- **lxml**: 6.0.1
 
 ## Parameter Configuration
 

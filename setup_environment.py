@@ -33,6 +33,14 @@ def check_python_version():
         print("⚠️  Warning: Python 3.13+ is recommended for optimal performance")
         return True  # Allow older versions to continue
 
+def suggest_environment_setup():
+    """Suggest environment setup commands"""
+    print("\n💡 Environment Setup Suggestions:")
+    print("To create the recommended environment 'env_cp313_pnnAnalysis':")
+    print("conda create -n env_cp313_pnnAnalysis python=3.13")
+    print("conda activate env_cp313_pnnAnalysis")
+    print("pip install -r requirements.txt")
+
 def install_requirements():
     """Install required packages from requirements.txt"""
     requirements_file = Path(__file__).parent / "requirements.txt"
@@ -154,10 +162,14 @@ def main():
     # Create test script
     test_script = create_test_script()
     
+    # Suggest environment setup
+    suggest_environment_setup()
+    
     print("=" * 50)
     print("🎉 Environment setup completed successfully!")
     print(f"📝 Run 'python {test_script}' to test the environment")
-    print("📚 See README_CN.md or README_EN.md for usage instructions")
+    print("📚 See README_CN.md or README.md for usage instructions")
+    print("🔧 Recommended environment name: env_cp313_pnnAnalysis")
     
     return True
 

@@ -88,7 +88,7 @@ def process_channel_data(dots_files, diff_files, channel_name):
         
         # 添加区域信息
         df['regionID'] = int(region_id)
-        df['region'] = region_id
+        df['acronym'] = region_id
         
         all_data.append(df)
     
@@ -102,19 +102,19 @@ wfa_data = process_channel_data(dots_wfa_files, diffFluo_wfa_files, 'WFA')
 print("\n处理PV数据...")
 pv_data = process_channel_data(dots_pv_files, diffFluo_pv_files, 'PV') if len(dots_pv_files) > 0 else pd.DataFrame()
 
-# 为每个区域(region)计算出现顺序，从1开始作为 group（组数）
+# 为每个区域(acronym)计算出现顺序，从1开始作为 mid（组数）
 # 使用 cumcount 保留重复区域的先后次序
 wfa_data = wfa_data.copy()
-wfa_data['group'] = wfa_data.groupby('region').cumcount() + 1
+wfa_data['mid'] = wfa_data.groupby('acronym').cumcount() + 1
 
-print("\n按区域分组统计 group：")
-counts = wfa_data.groupby('region')['group'].max().to_dict()
+print("\n按区域分组统计 mid：")
+counts = wfa_data.groupby('acronym')['mid'].max().to_dict()
 for acr, cnt in counts.items():
-    print(f"区域 {acr}: 共有 {cnt} 组（group 1..{cnt}）")
+    print(f"区域 {acr}: 共有 {cnt} 组（mid 1..{cnt}）")
 
 # 合成最终 DataFrame（使用 WFA 指标）
 print("\n合并数据...")
-final_df = wfa_data[['group', 'density', 'diffuseFluo', 'energy', 'intensity', 'region']].copy()
+final_df = wfa_data[['mid', 'density', 'diffuseFluo', 'energy', 'intensity', 'acronym']].copy()
 
 # 全脑归一化（基于 WFA，总和方式）
 print("\n进行全脑归一化...")

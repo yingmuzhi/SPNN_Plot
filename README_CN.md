@@ -1,5 +1,9 @@
 # 脊髓PNN数据分析与可视化项目
 
+## 致谢
+
+感谢 **Leonardo Lupori** 的宝贵帮助，没有他的支持就没有这份文档。
+
 ## 项目概述
 
 本项目用于分析脊髓中PNN（Perineuronal Nets）的分布特征，包括密度、能量、强度和弥散荧光等指标，并生成相应的热力图、柱状图、相关性分析和SVG分区着色图。
@@ -91,13 +95,14 @@
 
 ### 步骤1: 环境配置
 ```bash
-# 创建Python 3.13环境
-conda create -n pnn_analysis python=3.13
-conda activate pnn_analysis
+# 运行环境配置脚本
+python /data/SegPNN_CR/_ymz/20250917_Figure02_dataAnalysis/setup_environment.py
 
-# 安装依赖包
-pip install pandas numpy matplotlib seaborn scipy scikit-learn xml
+# 验证环境配置
+python /data/SegPNN_CR/_ymz/20250917_Figure02_dataAnalysis/test_environment.py
 ```
+
+**注意**: 所有必需的依赖包都在 `requirements.txt` 中定义，环境配置脚本会自动安装。
 
 ### 步骤2: 数据预处理
 ```bash
@@ -134,51 +139,40 @@ python figure_02_3renderSVG.py
 
 ### Python 3.13 环境配置
 
-#### 1. 创建虚拟环境
+#### 1. 自动化环境配置
 ```bash
-# 使用conda创建环境
-conda create -n pnn_analysis python=3.13
-conda activate pnn_analysis
-
-# 或使用venv
-python3.13 -m venv pnn_analysis_env
-source pnn_analysis_env/bin/activate  # Linux/Mac
-# pnn_analysis_env\Scripts\activate    # Windows
+# 运行环境配置脚本（推荐方式）
+python /data/SegPNN_CR/_ymz/20250917_Figure02_dataAnalysis/setup_environment.py
 ```
 
-#### 2. 安装依赖包
+#### 2. 手动环境配置（可选）
 ```bash
-# 基础科学计算包
-pip install pandas>=2.0.0
-pip install numpy>=1.24.0
-pip install scipy>=1.10.0
+# 创建环境名：env_cp313_pnnAnalysis
+conda create -n env_cp313_pnnAnalysis python=3.13
+conda activate env_cp313_pnnAnalysis
 
-# 可视化包
-pip install matplotlib>=3.7.0
-pip install seaborn>=0.12.0
-
-# 机器学习包
-pip install scikit-learn>=1.3.0
-
-# XML处理
-pip install lxml>=4.9.0
-
-# 可选：Jupyter支持
-pip install jupyter notebook
+# 安装精确版本的依赖包
+pip install -r /data/SegPNN_CR/_ymz/20250917_Figure02_dataAnalysis/requirements.txt
 ```
 
-#### 3. 验证安装
-```python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-import scipy.stats
-from sklearn.linear_model import HuberRegressor
-import xml.etree.ElementTree as ET
+**注意**: 使用精确版本号（==）确保环境的一致性和可重现性。
 
-print("所有依赖包安装成功！")
+#### 3. 验证环境配置
+```bash
+# 运行环境验证脚本
+python /data/SegPNN_CR/_ymz/20250917_Figure02_dataAnalysis/test_environment.py
 ```
+
+**注意**: 所有依赖包都在 `requirements.txt` 中定义，使用精确版本号（==）确保环境的一致性和可重现性。环境配置脚本会自动处理安装过程。
+
+### 核心依赖包版本
+- **pandas**: 2.3.2
+- **numpy**: 2.3.3
+- **scipy**: 1.16.2
+- **matplotlib**: 3.10.6
+- **seaborn**: 0.13.2
+- **scikit-learn**: 1.7.2
+- **lxml**: 6.0.1
 
 ## 参数配置
 
