@@ -1,0 +1,76 @@
+# Gitignore file for PNN Analysis Project
+# Created to ignore legacy files, source data, and cache files
+
+# Ignore all files and directories containing "legacy"
+*legacy*
+**/legacy/**
+**/*legacy*/**
+**/*legacy*
+
+# Ignore all contents under src directory
+src/
+src/*
+src/**/*
+
+# Ignore Python cache files and directories
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Ignore Python virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.log
+
+# Ignore output files that are generated
+*.svg
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.eps
+
+# Ignore data files
+*.csv
+*.xlsx
+*.xls
+*.json
+*.xml
+
+# Ignore backup files
+*.bak
+*.backup
+*~
+
+# Ignore test output
+test_output/
+test_results/
